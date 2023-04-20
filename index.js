@@ -11,11 +11,19 @@ app.get('/', (req, res) => {
 });
 
 app.post('/matic/:op', async (req, res) => {
-  res.send(await matic[req.params.op](req.body));
+  try{ 
+    res.send(await matic[req.params.op](req.body));
+  } catch(e) {
+    res.send('oops... An error occurred!')
+  }
 })
 
 app.post('/btt/:op', async (req, res) => {
-  res.send(await btt[req.params.op](req.body))
+  try {
+    res.status(200).send(await btt[req.params.op](req.body))
+  } catch(e) {
+    res.send('oops... An error occurred!')
+  }
 })
 
 app.listen(5000, () => {
