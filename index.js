@@ -15,7 +15,7 @@ app.post('/matic/:op', async (req, res) => {
 })
 
 app.post('/btt/:op', async (req, res) => {
-  res.status(200).send(await btt[req.params.op](req.body))
+  res.send(await btt[req.params.op](req.body))
 })
 
 app.listen(5000, () => {
