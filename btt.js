@@ -3,7 +3,7 @@ const axios = require('axios');
 const getABI = async (contractAddress) => {
   const API_KEY = 'U3UZ9S6AB8XVWH81EBMZTR7RZKNVUF154Y';
   try {
-    const response = await axios.get(`https://api-testnet.bttcscan.com/api?module=contract&action=getabi&address=${contractAddress}&apikey=${API_KEY}`);
+    const response = await axios.get(`https://api.bttcscan.com/api?module=contract&action=getabi&address=${contractAddress}&apikey=${API_KEY}`);
     return JSON.parse(response.data.result);
   } catch (e) {
     return null;
@@ -14,7 +14,7 @@ const sendTransaction = async (data) => {
   const toAddress = data.to;
   const amount = data.amount.toString();
   const privateKey = data.privateKey;
-  const providerUrl = 'https://pre-rpc.bt.io';
+  const providerUrl = 'https://rpc.bt.io';
   const web3 = new Web3(new Web3.providers.HttpProvider(providerUrl));
   const account = web3.eth.accounts.privateKeyToAccount(privateKey)
   web3.eth.accounts.wallet.add(account)
