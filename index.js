@@ -1,5 +1,4 @@
 const express = require('express');
-const matic = require('./matic');
 const btt = require('./btt');
 const bodyParser = require('body-parser');
 
@@ -9,14 +8,6 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.status(200).send('server up and running!')
 });
-
-app.post('/matic/:op', async (req, res) => {
-  try{ 
-    res.send(await matic[req.params.op](req.body));
-  } catch(e) {
-    res.send('oops... An error occurred!')
-  }
-})
 
 app.post('/btt/:op', async (req, res) => {
   try {
