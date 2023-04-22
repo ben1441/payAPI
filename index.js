@@ -13,7 +13,7 @@ app.post('/btt/:op', async (req, res) => {
   try {
     res.status(200).send(await btt[req.params.op](req.body))
   } catch(e) {
-    res.send('oops... An error occurred!')
+    res.status(500).send(e || 'oops... An error occurred!')
   }
 })
 
