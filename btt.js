@@ -33,4 +33,4 @@ const sendTransaction = async (data) => {
   return `https://bttcscan.com/tx/${tx.transactionHash}`;
 }
 
-module.exports = { getABI, sendTransaction, sendToken };
+module.exports = { getABI, sendTransaction };
