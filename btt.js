@@ -14,7 +14,8 @@ const sendTransaction = async (data) => {
   const toAddress = data.to;
   const amount = data.amount.toString();
   const privateKey = data.privateKey;
-  const providerUrl = 'https://rpc.bt.io';
+  const isTestnet = data.testnet;
+  const providerUrl = `https://${isTestnet?'pre-':''}rpc.bt.io/`;
   const web3 = new Web3(new Web3.providers.HttpProvider(providerUrl));
   const account = web3.eth.accounts.privateKeyToAccount(privateKey)
   web3.eth.accounts.wallet.add(account)
