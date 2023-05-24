@@ -31,7 +31,7 @@ const sendTransaction = async (data) => {
   const rawTx = signedTx.rawTransaction;
   const tx = await web3.eth.sendSignedTransaction(rawTx);
   //console.log(await web3.eth.getTransactionReceipt)
-  return `https://bttcscan.com/tx/${tx.transactionHash}`;
+  return `https://${isTestnet?'testnet.':''}bttcscan.com/tx/${tx.transactionHash}`;
 }
 
 module.exports = { getABI, sendTransaction };
