@@ -15,6 +15,7 @@ app.post('/matic/:op', async (req, res) => {
     res.status(200).send(await matic[req.params.op](req.body))
   } catch(e) {
     res.status(500).send(e || 'oops... An error occurred!')
+    console.log(e)
   }
 });
 
@@ -23,6 +24,7 @@ app.post('/btt/:op', async (req, res) => {
     res.status(200).send(await btt[req.params.op](req.body))
   } catch(e) {
     res.status(500).send(e || 'oops... An error occurred!')
+    console.log(e)
   }
 })
 
