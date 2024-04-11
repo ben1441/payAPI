@@ -19,10 +19,11 @@ const sendTransaction = async (data) => {
   const web3 = new Web3(new Web3.providers.HttpProvider(providerUrl));
   const account = web3.eth.accounts.privateKeyToAccount(privateKey)
   web3.eth.accounts.wallet.add(account)
+  console.log(await web3.eth.getGasPrice());
   const txObject = {
     to: toAddress,
     value: web3.utils.toBN(amount).mul(web3.utils.toBN(10).pow(web3.utils.toBN(18))),
-    gasPrice: 9000000,
+    gasPrice: await web3.eth.getGasPrice(),
     gasLimit: 21000
   };
 
