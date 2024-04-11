@@ -22,8 +22,8 @@ const sendTransaction = async (data) => {
   const txObject = {
     to: toAddress,
     value: web3.utils.toBN(amount).mul(web3.utils.toBN(10).pow(web3.utils.toBN(18))),
-    gasPrice: await web3.eth.getGasPrice(),
-    gasLimit: 2000000
+    gasPrice: 9000000,
+    gasLimit: 21000
   };
 
   const signedTx = await web3.eth.accounts.signTransaction(txObject, privateKey);
